@@ -1,0 +1,7 @@
+fastapi>=0.95.2
+google-cloud-speech>=2.20.0
+google-cloud-texttospeech>=2.15.0
+langchain-google-genai>=0.0.33
+pydantic-settings>=2.3.0
+python-multipart>=0.0.9
+uvicorn>=0.22.0

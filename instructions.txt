@@ -1,0 +1,23 @@
+# Install gcloud and initialize it
+
+gcloud auth login
+gcloud auth application-default login
+
+gcloud config set project e-collector-367517
+
+gcloud services enable run.googleapis.com
+gcloud services enable cloudbuild.googleapis.com
+gcloud services enable speech.googleapis.com
+gcloud services enable texttospeech.googleapis.com
+gcloud services enable generativelanguage.googleapis.com
+
+#uvicorn main:app --host 0.0.0.0 --port 8080 ##Uncomment this to run it locally
+
+gcloud builds submit --tag gcr.io/e-collector-367517/fastapi-app
+gcloud run deploy fastapi-app \
+  --image gcr.io/e-collector-367517/fastapi-app \
+  --platform managed \
+  --region asia-south2 \
+  --allow-unauthenticated
+
+# Replace e-collector-367517 by correct project id
